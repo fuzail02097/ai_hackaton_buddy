@@ -1,0 +1,292 @@
+[
+  {
+    "question": "Shiprocket Tech Platform follow functional segregation principles and solution shall have n tiers. N is the number of technical / business functions Guidelines : Enterprise applications The web tier, app tier and DB tier shall be segregated and access controlled. Containerized application Each service has been hosted on a different pod Each pod is mapped to a service Each business service have a specific name space All communication between pods to be clearly highlighted and approved by ISRM All inter pod communication to be access controlled via container firewall Each functional tier to have access control Back up VLANS shall be segregated for other function tier",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket uses a multi tier infra for application. All components/Micro Services are deployed on different servers, and the Nginx server is used for proxy. For further details, please refer to the Shiprocket Architecture Document shared."
+  },
+  {
+    "question": "The Next Generation Firewall (NGF) should have the Next Generation (IPS) features enabled for all the flows.",
+    "label": "Fully Compliant",
+    "ideal_answer": "The network is managed by services provided by a Cloud service provider where Shiprocket has deployed IDS, IPS, and WAF for infrastructure protection."
+  },
+  {
+    "question": "Public Exposed web tier shall be behind EITC Reverse Proxy (Netscaler, F5). The supplier to confirm/ensure that this will not impact the application/solution performance as per earlier experiences.",
+    "label": "Fully Compliant",
+    "ideal_answer": "Application is behind of AWS cloud service provider load balancer and one proxy layer is between LB and Web application and their would be no impact on application Performance."
+  },
+  {
+    "question": "The SSL offloading enabled on Shiprocket Load balancer (ADC) for all flows except for PCI DSS flows.",
+    "label": "Fully Compliant",
+    "ideal_answer": "All the information transmitted over the internet is secured with TLS 1.2/1.3 and higher version and HTTPS protocol is used to transmit data from Client to Server."
+  },
+  {
+    "question": "Shiprocket network security measures( WAF) technology implementation.Anti DDOS protection enabled",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has deployed WAF and an Anti virus for malware and DDOS protection."
+  },
+  {
+    "question": "The application shall be accessed through a web URL  all the information transmitted over the internet is secured with TLS 1.2/1.3 and higher version and HTTPS protocol. Applications exposed to the internet shall have 2FA enabled",
+    "label": "Fully Compliant",
+    "ideal_answer": ""
+  },
+  {
+    "question": "Shiprocket platform has the capability to capture and audit logs for both (OS and applications):  Admin/user activities  User log in/Log out time  User configuration changes  Commands executed  Reports Viewed  GUI activity logs  Transaction logs  Critical file change logs  Specific Application usecase logs Logs contains the following details : Logging Node, Log location, Log type, Log format, Log export mechanism, Security log details.",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket records and maintains all events logs with a time stamp. Logs are maintained in the solution. The Shiprocket Activity Log provides insight into the operations that were performed on Orders, Transactions and Process instances in your account. Using the Activity Log, one can determine the what, who, and when for any right operations (PUT, POST, DELETE) taken on the Order, Transactions and Process. It also helps to understand the status of the operation and other relevant properties. Shiprocket has implemented monitoring tools for all logs review and monitoring."
+  },
+  {
+    "question": "Database activity monitoring (DAM) to be considered for deployment on DB targets based on the set criteria of data hosted in the application. The supplier to confirm/ensure that this will not impact the application/solution performance as per earlier experiences.",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has deployed Grafana and squad cast tools for alert and monitoring, but we dont expose the endpoint for monitoring. We monitor the server performance in CPU Memory utilization, Application services, Database, etc. Automatic alerts have been configured for all these parameters wherein the moment there are any discrepancies, the relevant stakeholders get notified through alerts, and immediate action is taken to fix the discrepancy. Apart from this, we have implemented various mechanisms at the server level, e.g. Automated Load Balancing with multiple app servers to ensure high availability."
+  },
+  {
+    "question": "Shiprocket ensures that proper security patching process is in place and documented and followed for their solution with Service Operation.",
+    "label": "Fully Compliant",
+    "ideal_answer": "All systems are patched as per patch availability and OEM instructions. Small bug fixes  patches are released immediately as soon as they get fixed with near zero downtime. All patches and fixes go through automated testing and validation and are then deployed on production. We have implemented multiple parallel app servers to ensure high availability. In addition, Upgrades will be alerted, and the different types are mentioned below 1. Major and Minor: Major ones are the new feature developments. Minor ones are usually quick bug fixes performed and released with zero downtime on the system. 2. Bi Monthly: We release the updates Bi Monthly (we have the sprint every 2 weeks) on the platform, and if required, we can share the release notes with the customer. 3. If any major release involves any downtime, then a two week prior notice is provided to the customers. In most cases, the releases happen with zero downtime. 4. There are two types of releases: The platform release and the Product Release. The platform release is applicable across multiple clients and will get implemented for all the customers. The product release is around the improved operational processes and hence not mandatory for the customer to adopt (Even though we would recommend that upgrade as the new processes will be an enhanced version of the previous one. However, this is the customers choice). 5. As mentioned in the previous point, platform releases get applicable to all clients as soon as they are released. The product level releases are something that customers can choose and decide when they want to upgrade."
+  },
+  {
+    "question": "Shiprocket must ensure the nodes authenticate and authorize centrally for admin users, business user and application users.",
+    "label": "Fully Compliant",
+    "ideal_answer": "The Shiprocket system allows single sign on SAML 2.0 and the Shiprocket platform provides the option of a single sign on as a way of identity management  SAML 2.0 for authentication and authorization. APIs are available for the creation of users and roles, etc. Authentication and authorization using the DU enterprise directory (LDAP/AD, Radius/ACS) are not possible."
+  },
+  {
+    "question": "Shiprocket is using the AWS cloud to enable faster disaster recovery of our critical IT systems. The AWS cloud supports popular disaster recovery (DR) architecture of hot standby environments that enable rapid failover at scale. With data centres in regions worldwide, AWS provides a set of cloud based disaster recovery services that will allow quick recovery of your IT infrastructure and data. 1. Shiprocket runs in a multi zone AWS environment, which guarantees high resiliency and maintains two copies of data across different availability zones. The maximum duration for IT service resumption after the service outage for RTO is 6 hours to 24 hours. 2. Shiprocket uses Amazons RDS Multi AZ deployments to provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads. When Shiprocket provisions a Multi AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). Each AZ runs on its own physically distinct, independent infrastructure and is engineered to be highly reliable. In case of an infrastructure failure, Amazon RDS performs an automatic failover to the standby (or to a read replica in the case of Amazon Aurora) so that Shiprocket can resume database operations as soon as the failover is complete. Shiprocket also takes regular backups (RPO) every day at 00:00. These snapshots will be restored as RPO in case of DR. Maximum tolerable period in which data might be lost due to the service outage is 24 hours for RPO. Please refer to the Business Continuity Plan and Disaster Recovery document attached.",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket platform provides the option of a Single sign on as a way of identity management  SAML 2.0 for authentication and authorization. Further, all the information transmitted over the internet is secured with TLS 1.2 and higher version and HTTPS protocol."
+  },
+  {
+    "question": "Shiprocket solution authenticate and authorize to customers system(WMS/OMS) to get integrated to push data into Shiprocket platform and vice versa. Shiprocket ensures their solution can federate the authentication and authorization of EITC subscribers in case of any provided customer portal.",
+    "label": "Fully Compliant",
+    "ideal_answer": "We support a single sign on using SAML 2.0. where the customer can log in to the Shiprocket solution."
+  },
+  {
+    "question": "Shiprocket applications ensure classification of users is done based on profiles and privilages including user accounts, service accounts, business user accounts, admin accounts, local accounts....etc. User Access management policy is in place and followed.",
+    "label": "Fully Compliant",
+    "ideal_answer": "The role based access can be configured against every user type and even at the user level who is going to use the system. Based upon the permissions that have been mapped against a role, the user of that role will only be able to do that much work. Shiprocket is designed for use cases ranging from single account holders to large teams. You can create users for your account without giving all team members the same levels of access. User roles are available for Enterprise accounts and specify different levels of permissions that you can use to manage collaborators. They are especially useful when there are multiple people working in the same company."
+  },
+  {
+    "question": "User Access Management and Authorization",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket supports LDAP integration to access for its users and also SSO. Shiprocket is using SAML2.0 for SSO and IBM ISIM has also support for SAML2.0 Integration and we would be able to do Integration with IBM ISIM which is being used by DU telecom."
+  },
+  {
+    "question": "User Management System",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has Role Based Access Control (RBAC) is a place where different users can be given different levels of access i.e. the Courier will need to follow the current User Access Management process i.e. follow the current roles configured for different users in the solution."
+  },
+  {
+    "question": "Shiprocket has impleneted data security controls like encryption, tokenizing and masking for any data attributes that falls under Personally Identifiable Information (PII). The applicability of data security controls are for data in motion, rest and transit",
+    "label": "Fully Compliant",
+    "ideal_answer": "All the information transmitted over the internet is secured with TLS 1.2 and higher version and HTTPS protocol is used to transmit data from Client to Server. We use military grade encryption for the Shiprocket accounts password. Our encryption is based on 256 bit. symmetric AES encryption, RSA 4096 encryption, ECDH521 encryption, and transport layer security. Client data is stored in S3 and RDS. Both are server side encrypted. We manage keys using AWS KMS. We Manage different keys for each client. Our DevOps team are authorized to manage those keys though they cannot use the keys to encrypt or decrypt the data Input and Output validations. Further, we have attached the Shiprocket Data Privacy and Protection Policy for additional reference details."
+  },
+  {
+    "question": "The web interface of the web servers have WAF control enabled in blocking mode. By Default OWASP top 10 signatures shall be enabled in blocking mode. The supplier to confirm/ensure that this will not impact the application/solution performance as per earlier experiences.",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket uses a multi tier infra for application. All components/Micro Services are deployed on different servers, and the Nginx server is used for proxy. Network Security : The network is managed by services provided by a Cloud service provider where Shiprocket has deployed IDS, IPS, and WAF for infrastructure protection. Application Security:We have penetration testing performed typically once a quarter by an external security agency in order to identify vulnerabilities in applications for the following assessments: Web Application Security Assessment Mobile App Security Assessment Network Security Assessment Secure Code Assessment We typically do not inform customers, but we can share the reports if needed. Shiprocket follows OWASP 10 standards for vulnerability management."
+  },
+  {
+    "question": "All solution components (OS, DB, Applications, network components) shall be hardened. Kindly ensure hardening guidelines are provided to ISRM for review and sign off. If required by ISRM, the vendor will need to provide the minimum baseline security standard (MBSS) for the components provided as part of the solution",
+    "label": "Fully Compliant",
+    "ideal_answer": "All systems are patched as per patch availability and OEM instructions.Shiprocket has industry best certification, e.g. ISO 27001, SOC 1, SOC 2 Type 2, and adheres to following GDPR."
+  },
+  {
+    "question": "1. The portal development shall strictly follow strict secure Coding practices 2. All the online payment channel and processing, The supplier shall ensure PCI DSS compliance to the integrations under the provisions of PCI DSS 3. Any front end web application/internal portals shall strictly comply with the latest OWASP standard for web front end development. The supplier to provide evidence of the same:  Support to OTP, Second factor authentication based on use case  Captcha to differentiate between BOT and Human  Online shop fraud prevention controls  Injection  Broken authentication  session management  Cross site scripting  Insecure direct object references  Security Misconfiguration  Sensitive data exposure  Missing function level access control  CSRF  Using Known vulnerable components  Un validated redirects and forward",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket follows OWASP 10 standard for vulnerability management and only the application environment is in scan scope. The network is managed service, which is under CSP purview. OWASP top 10 vulnerability Static and Dynamic scanning done quarterly and fixing of finding done immediately along with External VAPT done by external vendors."
+  },
+  {
+    "question": "The supplier has to use secure coding practices and at every drop/phase of the project.The supplier has to provide: SAST (Static analysis and remadiation report) DAST (Dynamic testing and remediation report) NOTE: This shall be aligned with EITC Solution design team/ IT and governed by ISRM",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has a NIST based SDLC process and all level testing, QA, and security have been part of the SDLC process. Also, we have a quarterly VAPT process based on OWASPs top 10 standards."
+  },
+  {
+    "question": "All API exposures (B2B , B2C) shall be only through API gateway with minimum security controls implemented, the minimum baselines shall be as per the API GW blueprint of EITC  Any API Exposure/consumption (Inbound API consumption) to external customers shall be through Apigee APIGW with: (1) Oauth 2.0 (2) Authentication and Authorization of each APIs with PKI (3) APIGW security controls enabled and ensured (ex: spike arrest, Whitelisting of IPs, Thresh hold, ...etc) Refer: API Security Blueprint",
+    "label": "Fully Compliant",
+    "ideal_answer": "API Integration: SOAP and REST APIs (Preferred: Quick  Easy)  Payload: XML and JSON.  Sync  Async services (Depends on business requirements).  Authentication: Shiprocket Integration APIs supports Bearer Token based authentication only.  Encryption  Decryption supports.  Send an Email in case of failure. System Checks:  Rate/Throttle Limit: 10 requests/secs  Payload size less than equal to 10 MB  Expected response time within 30 secs  Support authentication at client side: Token, Header, Parameter, Basic Auth, OAuth  Batch Support: One request can contain up to 300 items/orders/updates.  Multipart file upload not supported Yes, All API will be HTTPS and accessed through only the Bearer token. For further details, please find the attached document with the title Integration Best practice "
+  },
+  {
+    "question": "Shiprocket have multi environments (Testing, development, Production) to facilitate API testing prior to production API integration",
+    "label": "Fully Compliant",
+    "ideal_answer": "Yes, Shiprocket has a separate environment for development, testing, production, etc."
+  },
+  {
+    "question": "Asset Management:",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket maintains the IPR register. Shiprocket process owner maintains the assets register with assets classification."
+  },
+  {
+    "question": "End Point security implementation All end points must have anti virus in real time protection mode for all OS flavors. The supplier to confirm/ensure that this will not impact the application/solution performance as per earlier experiences.",
+    "label": "Fully Compliant",
+    "ideal_answer": "The Shiprocket application is hosted on AWS Servers Being hosted on AWS, Shiprocket benefits from a data centre and network architecture built to meet the requirements of the most security sensitive organizations. An advantage of the AWS cloud is that it allows Shiprocket to scale and innovate while maintaining a secure environment. Furthermore, we are using the AWS cloud to enable faster disaster recovery of our critical IT solutions without incurring the infrastructure expense of a second physical site. The AWS cloud supports many popular disaster recovery (DR) architectures from pilot light to hot standby environments that enable rapid failover at scale. With data centres worldwide, AWS provides a set of cloud based disaster recovery services that enable rapid recovery of IT infrastructure and data. Further, We use military grade encryption for the Shiprocket accounts password. Our encryption is based on 256 bit. symmetric AES encryption, RSA 4096 encryption, ECDH521 encryption, and transport layer security. Client data is stored in S3 and RDS. Both are server side encrypted. We manage keys using AWS KMS. We Manage different keys for each client. Our DevOps team are authorized to manage those keys though they cannot use the keys to encrypt or decrypt the data Input and Output validations."
+  },
+  {
+    "question": "Vulnerability Assessement Penetration Testing(VAPT) for the infrastructure, platform, application, Mobile App,  APIs.",
+    "label": "Fully Compliant",
+    "ideal_answer": "We have penetration testing performed typically once a quarter by an external security agency in order to identify vulnerabilities in applications for the following assessments: Web Application Security Assessment Mobile App Security Assessment Network Security Assessment Secure Code Assessment We typically do not inform customers, but we can share the reports if needed. Shiprocket follows OWASP 10 standards for vulnerability management.we typically do not inform customers, but we can share the reports if needed."
+  },
+  {
+    "question": "Infosec policiies and Procedures",
+    "label": "Fully Compliant",
+    "ideal_answer": "Once the security policy and standard are shared we will go through them and comment on the compliance."
+  },
+  {
+    "question": "BCP and DR capabilities",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket is using the AWS cloud to enable faster disaster recovery of our critical IT systems. The AWS cloud supports popular disaster recovery (DR) architecture of hot standby environments that enable rapid failover at scale. With data centres in regions worldwide, AWS provides a set of cloud based disaster recovery services that will allow quick recovery of your IT infrastructure and data. 1. Shiprocket runs in a multi zone AWS environment, which guarantees high resiliency and maintains two copies of data across different availability zones. The maximum duration for IT service resumption after the service outage for RTO is 6 hours to 24 hours. 2. Shiprocket uses Amazons RDS Multi AZ deployments to provide enhanced availability and durability for Database (DB) Instances, making them a natural fit for production database workloads. When Shiprocket provisions a Multi AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone (AZ). Each AZ runs on its own physically distinct, independent infrastructure and is engineered to be highly reliable. In case of an infrastructure failure, Amazon RDS performs an automatic failover to the standby (or to a read replica in the case of Amazon Aurora) so that Shiprocket can resume database operations as soon as the failover is complete. Shiprocket also takes regular backups (RPO) every day at 00:00. These snapshots will be restored as RPO in case of DR. Maximum tolerable period in which data might be lost due to the service outage is 24 hours for RPO. Please refer to the Business Continuity Plan and Disaster Recovery document attached."
+  },
+  {
+    "question": "The supplier is required to comply to the EITC third party security requirements (detailed 3rd Party Requirements shall be shared on request) subject to Build and Operate Model",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket will be complied with VAPT findings conducted by thrid party on behalf of EITC security requirement. Issues reported will be fixed by Shiprocket."
+  },
+  {
+    "question": "The supplier as part of the deliverable of the project shall provide the following details:  Solution Design Document  Separate Security assessment document and HLD to be detailed and shared  Traffic flow between applications  Accounts (service accounts) used to integrate different systems  Privileged accounts that will be used in each system (OS, application, and DB)",
+    "label": "Fully Compliant",
+    "ideal_answer": "1. We can share these during the deep dive workshops 2. Shiprocket conducts regular (Quarterly) VAPT tests on the entire Shiprocket application to assess and mitigate security risks and vulnerabilities. Results can be shared with the customer. 3.  4. Microservices this will be completed via API integration 5. Shiprocket is a SaaS based platform and this information will not be required to be shared."
+  },
+  {
+    "question": "What are your Cyber Security Practices",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket follows the below cyber security framework components : 1.Enable Best firewall protection 2.Enforce strong and safe password 3.Use multi factor authentication 4.Regular Data Backup 5.Monitor Third party controls 6.Ignore pop ups, links and unnecessary messages 7.Cyber security awareness training program"
+  },
+  {
+    "question": "What is your Cyber Security Strategy",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket Cyber security strategy has been built on on Creating a Secure Cyber Ecosystem Shiprocket has a strong and robust cyber ecosystem where the cyber devices can work with each other in the future to prevent cyber attacks, reduce their effectiveness, or find solutions to recover from a cyber attack. This cyber ecosystem can be supervised by present monitoring techniques where software products are used to detect and report security weaknesses. A strong cyber ecosystem has three symbiotic structures  Automation, Interoperability, and Authentication. Automation  It eases the implementation of advanced security measures, enhances the swiftness, and optimizes the decision making processes. Interoperability  It toughens the collaborative actions, improves awareness, and accelerates the learning procedure. There are three types of interoperability  Semantic (i.e., shared lexicon based on common understanding) Technical Policy  Important in assimilating different contributors into an inclusive cyber defense structure. Authentication  It improves the identification and verification technologies that work in order to provide  Security Affordability Ease of use and administration Scalability Interoperability"
+  },
+  {
+    "question": "Which Cyber Security Framework is in practice",
+    "label": "Fully Compliant",
+    "ideal_answer": "NIST Cyber Security Framework V1.1"
+  },
+  {
+    "question": "What are the Executive and Critical Key Performance Metrics which you measure List out the KPIs",
+    "label": "Fully Compliant",
+    "ideal_answer": "KPIs : 1.RISK SNAPSHOT AND TREND 2.RISK BY BUSINESS UNIT AND ATTACK TYPE"
+  },
+  {
+    "question": "Is there a Cross Organizational Committee that meets regularly on Cyber Security issues",
+    "label": "Fully Compliant",
+    "ideal_answer": "We do attend security conferences to get aware of the regular security instances seminars/webinars"
+  },
+  {
+    "question": "Does your organization utilize visitor logs If so, are they maintained for more than 30 days",
+    "label": "Fully Compliant",
+    "ideal_answer": "Yes, Shiprocket meintain records for each visitors which includes Vendors,person who visit for Interview processes and any Outside staff."
+  },
+  {
+    "question": "Do you incorporate DDoS and other Cyber Attacks as part of your Business Continuity Plan",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has deployed WAF and an Anti virus for malware and DDOS protection. and is a part of our BCP."
+  },
+  {
+    "question": "What measures are taken to achieve Defense in Depth in the software",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket uses a multi tier infra for application. All components/Micro Services are deployed on different servers, and the Nginx server is used for proxy. Network Security : The network is managed by services provided by a Cloud service provider where Shiprocket has deployed IDS, IPS, and WAF for infrastructure protection. Application Security:We have penetration testing performed typically once a quarter by an external security agency in order to identify vulnerabilities in applications for the following assessments: Web Application Security Assessment Mobile App Security Assessment Network Security Assessment Secure Code Assessment We typically do not inform customers, but we can share the reports if needed. Shiprocket follows OWASP 10 standards for vulnerability management."
+  },
+  {
+    "question": "Has responsibility for managing information privacy been established",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has a dedicated Infosec team to manage infosec related activities which includes below : 1. Monitoring of Security incidents. 2. To make sure that system are secured w.r.t vulnerabilities as per OWASP top 10. 3.Responsible for conducting regular VAPT test for all domains and share the result with respective stackholders(Internal  Clients). 4. To Manage Risk and compliance with rest to Data Privacy and protection. 5. Involve in ISO 27001,SOC 1  SOC 2 audit following recertification to make sure that all applicable controls are intact and no exception raised. 6.Take care of Data Privacy  Protection policy as per GDPR regulations."
+  },
+  {
+    "question": "Is data at rest encrypted If so, is the data encrypted with a different key for each client",
+    "label": "Fully Compliant",
+    "ideal_answer": "Yes, Data is encrypted at rest. We use a symmetric AES encryption algorithm which is based on 256 bit.Communication across platforms is protected through server side . Keys are generated at client level and managed through key management services."
+  },
+  {
+    "question": "How do you protect your system against DDoS attack",
+    "label": "Fully Compliant",
+    "ideal_answer": "DDOS protection is implemented at two tiers: The first layer operates at the network level, employing a web application firewall with enabled IPS (Intrusion Prevention System). The second layer operates at the API level, employing transaction limiting techniques."
+  },
+  {
+    "question": "How long do you keep infrastructure logs for incident triage",
+    "label": "Fully Compliant",
+    "ideal_answer": "Infrastructure logs are kept for 3 months."
+  },
+  {
+    "question": "How long do you keep user logs for incident triage",
+    "label": "Fully Compliant",
+    "ideal_answer": "User Logs are kept at Shiprocket platform for 3 months and then would be archived for 7 years as per our Data retention and disposal policy."
+  },
+  {
+    "question": "How would we be informed about an incident if it occurred (process, timeframe, etc.) Can you describe your incident response plan and procedures",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has implemented comprehensive incident management policies, plans, and procedures to effectively address and resolve any incidents, ensuring thorough root cause identification. Attaching Information Incident documents for reference."
+  },
+  {
+    "question": "Are the infrastructure and systems overseen by a SOC",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket is SOC 1 Type 2 and SOC 2 Type 2 compliant."
+  },
+  {
+    "question": "Is any SIEM tool in place to monitor the infrastructure What other measures do you have in place to prevent, detect, and respond to insider threats",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket uses SIEM Tool(Uptime Kuma) to monitor the infrastructure. We have an Endpoint Seqrite tool to monitor all internal security incidents."
+  },
+  {
+    "question": "Do you or any third party conduct pen testing across the infrastructure How often",
+    "label": "Fully Compliant",
+    "ideal_answer": "Yes, We have a third party who performs VAPT Test for all Domains(Infrastructure,Web,API and Mobile) every quarter."
+  },
+  {
+    "question": "How are backups of the system data and configuration managed",
+    "label": "Fully Compliant",
+    "ideal_answer": "We use managed database offerings provided by cloud providers which enable us to take automated backups on a daily basis."
+  },
+  {
+    "question": "How is security awareness training provided to your employees and administrators",
+    "label": "Fully Compliant",
+    "ideal_answer": "We conduct following training to our employees including system administrators 1.Cyber security awareness training for every new joiner 2. Data privacy and protection training to every employee annually."
+  },
+  {
+    "question": "Have your systems been compromised in the last three years",
+    "label": "Fully Compliant",
+    "ideal_answer": "No, Our system has never been compromised since inception."
+  },
+  {
+    "question": "What are the physical locations of data centres Is it cloud based DC Who is the owner",
+    "label": "Fully Compliant",
+    "ideal_answer": "We use multiple cloud providers(AWS,Azure and GCP) and our infrastructure is 6 regions(India,US,west Europe,UK,Singapore and Australia) and Yes, Its a cloud based DC."
+  },
+  {
+    "question": "Do you support SSO",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket supports SSO with SAML 2.0 based authentication and authorization"
+  },
+  {
+    "question": "How we could integrate TMS with their applications (API, SFTP etc.)",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket platform connects with various touch points that are SOAP, REST, SFTP and EDI."
+  },
+  {
+    "question": "How Shiprocket secures the data and What type of security use by Shiprocket.",
+    "label": "Fully Compliant",
+    "ideal_answer": "All the information transmitted over the internet is secured with TLS 1.2 and higher version and HTTPS protocol is used to transmit data from Client to Server.We use military grade encryption for the Shiprocket accounts password. Our encryption is based on 256 bit. symmetric AES encryption, RSA 4096 encryption, ECDH521 encryption, and transport layer security. Client data is stored in S3 and RDS. Both are server side encrypted. We manage keys using AWS KMS."
+  },
+  {
+    "question": "How Shiprocket protects their website",
+    "label": "Fully Compliant",
+    "ideal_answer": "The application shall be accessed through a web URL  all the information transmitted over the internet is secured with TLS 1.2/1.3 version and HTTPS protocol. Hence other websites cant access our cookie using any type of coding."
+  },
+  {
+    "question": "Is there any redundancy on the Shiprocket application",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket platform built on Microservices architecture where each service is independent and deployed on multiple k8s kubernetes clusters into multiple availability zones into the same hosting cloud infrastructure(Data Centers).The same tech stack is getting deployed into another data centers as we are having multiple data centers across multiple geographies. In case any particular region goes down, we start serving from other regions data centers nearest to those datacenters."
+  },
+  {
+    "question": "What is the time limit for securing the service drop to restore it back .",
+    "label": "Fully Compliant",
+    "ideal_answer": "1 Hour Max to restore and make the system up incase of any down"
+  },
+  {
+    "question": "Are any of the following controls used within your software development lifecycle (SDLC) to identify and remediate vulnerabilities: a) Static code analysis (SAST) b) Dynamic code analysis (DAST) c) Software composition analysis (SCA) e) Secure code training f) Manual code security review Please describe which of these controls are used and how they are integrated into your SDLC.",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket has a NIST based SDLC process and all level testing, QA, and security have been part of the SDLC process which includes all these controls. We have all our source code to GitHub Enterprise edition which is secured and used for source code repository. Both Static Code and Dynamic Code analysis tools are implemented for SDLC Process wherein Dependa bot is used for static scan post every build deployment.It helps to ensure that the repository automatically keeps up with the latest releases of the packages and applications it depends on and create pull requests and checks code review, unit test checks, Integration test and code security checks. Quaterly VAPT testing (Web, App, API) by an external agency is performed as part of the Dynamic scan process to check the vulnerabilities.Shiprocket uses Source code audit tools for analysis eg. github enterprise, dependa bot. Github actions are used for building CI/CD pipeline."
+  },
+  {
+    "question": "If its shared DB, what controls Shiprocket has in place to ensure, secure  safeguard the customer data",
+    "label": "Fully Compliant",
+    "ideal_answer": "Shiprocket implements several controls to ensure the secure handling and protection of customer data: Access Control: Shiprocket platform has been enabled with AWS IAM strict access controls to limit access to customer data only to authorized personnel with a legitimate need to access it. Access permissions are granted based on roles and responsibilities, ensuring that only those individuals who require access can retrieve or manipulate the data. Encryption: Customer data stored in the database is encrypted both at rest and in transit to prevent unauthorized access. Encryption mechanisms such as AES (Advanced Encryption Standard) are utilized to safeguard the confidentiality and integrity of the data. Data at rest encryption for below components : EBS Volume RDS S3  (Account specific key) Data Segregation: Shiprocket implements data segregation techniques to logically separate customer data within the shared database. This ensures that each customers data remains isolated from others, reducing the risk of unauthorized access or data leakage. Monitoring and Logging: Shiprocket employs robust monitoring and logging mechanisms to track access to the shared database. Any suspicious or unauthorized activities are promptly detected, logged, and investigated to mitigate potential security incidents. Regular Security Audits: Shiprocket conducts regular security audits and assessments of its systems and databases to identify and address any vulnerabilities or security gaps. This proactive approach helps ensure that customer data remains secure and protected at all times. Overall, Shiprocket is committed to implementing stringent controls and measures to safeguard customer data, even in shared database environments, and continuously works to enhance its security posture to address emerging threats and risks."
+  }
+]
